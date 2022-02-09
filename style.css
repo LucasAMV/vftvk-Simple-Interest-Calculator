@@ -34,7 +34,7 @@ h1 {
 
 /* Hide Arrow Up and Down from input=number */
 /* Chrome, Safari, Edge, Opera */
-#yearsSelectOne input::-webkit-outer-spin-button,
+#years input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
@@ -79,6 +79,10 @@ form {
     min-width: 110px;
 }
 
-#yearsSelectOne {
+#years {
     max-width: 30px;
+}
+
+#selectedRate {
+    display: inline-flex;
 }
