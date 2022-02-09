@@ -1,4 +1,64 @@
-body {background-color:tan;}
-h1{color:green;}
+body {
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: flex-start;
+    align-items: center;
+}
 
+h1 {
+    color: gray;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin: 0;
+}
 
+#mainContent {
+    background-color: white;
+    border-radius: 5px;
+    padding: 20px 20px;
+
+    /* Font */
+    color: black;
+    font-size: 17px;
+    font-family: sans-serif;
+}
+
+/* Hide Arrow Up and Down from input=number */
+/* Chrome, Safari, Edge, Opera */
+#yearsSelectOne input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide Arrow Up and Down from input=number */
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form div {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+form div * {    
+    min-width: 30%;
+}
