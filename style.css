@@ -24,6 +24,12 @@ h1 {
     color: black;
     font-size: 17px;
     font-family: sans-serif;
+
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: space-between;
 }
 
 /* Hide Arrow Up and Down from input=number */
@@ -49,16 +55,30 @@ form {
     align-items: center;
 }
 
-form div {
-    width: 90%;
+#styleWrapperDiv {
+    min-height: 125px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: flex-start;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+#styleWrapperDiv div {
+    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: center;
-    align-items: center;
     align-content: center;
+    justify-content: flex-start;
+    align-items: center;
 }
 
-form div * {    
-    min-width: 30%;
+#styleWrapperDiv div label, #buttonCompute {
+    min-width: 110px;
+}
+
+#yearsSelectOne {
+    max-width: 30px;
 }

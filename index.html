@@ -13,32 +13,35 @@
         <h1>Simple Interest Calculator</h1>
 
         <form>
-            <div>
-                <label for="amountNumber">Amount:</label>
-                <input type="number" id="amountNumber" name="amountNumber">
+            <div id="styleWrapperDiv">
+                <div>
+                    <label for="amountNumber">Amount</label>
+                    <input type="number" id="amountNumber" name="amountNumber">
+                </div>
+        
+                <div>
+                    <label for="interestRateNumber">Interest Rate</label>
+                    <span>
+                        <input type="range" id="interestRateNumber" name="interestRateNumber" min="0" max="999.99">
+                        <span id="selectedRate"></span>
+                    </span>
+                </div>
+        
+                <div>
+                    <label for="yearsSelectOne">No. of Years</label>
+                    <input type="number" list="yearsList" name="yearsSelectOne" id="yearsSelectOne" />
+                    <datalist id="yearsList">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </datalist>
+                </div>
+
+                <button id="buttonCompute" onclick="compute()">Compute</button>
             </div>
     
-            <div>
-                <label for="interestRateNumber">Interest Rate:</label>
-                <span>
-                    <input type="range" id="interestRateNumber" name="interestRateNumber" min="0" max="999.99">
-                    <span id="selectedRate"></span>
-                </span>
-            </div>
-    
-            <div>
-                <label for="yearsSelectOne">No. of Years:</label>
-                <input type="number" list="yearsList" name="yearsSelectOne" id="yearsSelectOne" />
-                <datalist id="yearsList">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </datalist>
-            </div>
-    
-            <button onclick="compute()">Compute</button>
         </form>
 
         <div id="computedResult">
