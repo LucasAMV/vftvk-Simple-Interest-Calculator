@@ -12,12 +12,13 @@ h1 {
     color: gray;
     font-weight: bold;
     font-family: sans-serif;
-    margin: 0;
+    font-size: 38px;
+    margin: 0 0 15px 0;
 }
 
 #mainContent {
     background-color: white;
-    border-radius: 5px;
+    border-radius: 20px;
     padding: 20px 20px;
 
     /* Font */
@@ -25,7 +26,8 @@ h1 {
     font-size: 17px;
     font-family: sans-serif;
 
-    min-height: 200px;
+    min-height: 250px;
+    min-width: 500px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -56,13 +58,13 @@ form {
 }
 
 #styleWrapperDiv {
-    min-height: 125px;
+    min-height: 130px;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: flex-start;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 #styleWrapperDiv div {

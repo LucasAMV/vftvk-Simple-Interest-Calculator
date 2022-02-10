@@ -4,6 +4,9 @@ function compute() {
     let rate   = document.getElementById("interestRate").value;
     let years  = document.getElementById("years").value;
 
+    if(amount == "" || rate == "" || years == "")
+        return;
+
     let computedAmout = amount*(rate/100)*5;
 
     console.log("Render: "+computedAmout);
@@ -15,9 +18,11 @@ function compute() {
     answer += "</br>";
     answer += "You will receive an amount of " + computedAmout + ",";
     answer += "</br>";
-    answer += "in the year " + years;
+    answer += "in the year " + (Number.parseInt(years)+new Date().getFullYear());
 
-    document.getElementById("computedResult").innerHTML = answer;
+    let textDiv = document.getElementById("computedResult");
+    textDiv.innerHTML = answer;
+    textDiv.style = "padding: 25px 0px;"
 }
 
 function refreshSelectedRate() {
