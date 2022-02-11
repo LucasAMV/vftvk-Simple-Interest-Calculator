@@ -37,10 +37,7 @@ function validateAmount() {
 }
 
 window.onload = function() {
-    //When page finished loading, fill the current selected interest rate.
-    refreshSelectedRate();
-
-    //Avoid poluting HTML code with javascript calls onchange="..."
+    //Avoid poluting HTML code with javascript calls onclick/onchange="..."
     document.getElementById('rate').addEventListener("change", refreshSelectedRate, false);
     document.getElementById('principal').addEventListener("change", validateAmount, false);
     document.getElementById('buttonCompute').addEventListener("click", compute, false);
