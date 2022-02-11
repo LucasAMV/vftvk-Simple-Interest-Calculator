@@ -1,10 +1,10 @@
 function compute() {
     if(!validateAmount())
         return;
-
-    let amount = document.getElementById("principal").value;
-    let rate   = document.getElementById("rate").value;
-    let years  = document.getElementById("years").value;
+    
+    let amount = Number.parseInt(document.getElementById("principal").value);    
+    let rate   = Number.parseFloat(document.getElementById("rate").value);
+    let years  = Number.parseInt(document.getElementById("years").value);
 
     let computedAmout = amount*years*rate/100;
 
@@ -15,7 +15,7 @@ function compute() {
     answer += "</br>";
     answer += "You will receive an amount of <mark>" + computedAmout + "</mark>,";
     answer += "</br>";
-    answer += "in the year <mark>" + (Number.parseInt(years)+new Date().getFullYear() + "</mark>.");
+    answer += "in the year <mark>" + (years+new Date().getFullYear() + "</mark>.");
 
     let textDiv = document.getElementById("computedResult");
     textDiv.innerHTML = answer;
@@ -27,8 +27,8 @@ function refreshSelectedRate() {
 
 function validateAmount() {
     let amountField = document.getElementById("principal");
-    let principalValue = amountField.value;    
-    if(principalValue < 1 || principalValue == '') {
+    let principalValue = Number.parseInt(amountField.value);
+    if(amountField.value == '' || isNaN(principalValue) ||  principalValue < 1) {
         alert("Enter a positive number", );
         amountField.focus();
         return false;
