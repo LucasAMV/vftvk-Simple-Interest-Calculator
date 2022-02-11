@@ -1,44 +1,47 @@
 function compute() {
-    console.log("Reached compute()");
-    let amount = document.getElementById("amountNumber").value;
-    let rate   = document.getElementById("interestRate").value;
-    let years  = document.getElementById("years").value;
-
-    if(amount == "" || rate == "" || years == "")
+    if(!validateAmount())
         return;
 
-    let computedAmout = amount*(rate/100)*5;
+    let amount = document.getElementById("principal").value;
+    let rate   = document.getElementById("rate").value;
+    let years  = document.getElementById("years").value;
 
-    console.log("Render: "+computedAmout);
+    let computedAmout = amount*years*rate/100;
 
     let answer = "";
-    answer += "If you deposit " + amount + ",";
+    answer += "If you deposit <mark>" + amount + "</mark>,";
     answer += "</br>";
-    answer += "at an interest rate of " + rate + "%.";
+    answer += "at an interest rate of <mark>" + rate + "%</mark>.";
     answer += "</br>";
-    answer += "You will receive an amount of " + computedAmout + ",";
+    answer += "You will receive an amount of <mark>" + computedAmout + "</mark>,";
     answer += "</br>";
-    answer += "in the year " + (Number.parseInt(years)+new Date().getFullYear());
+    answer += "in the year <mark>" + (Number.parseInt(years)+new Date().getFullYear() + "</mark>.");
 
     let textDiv = document.getElementById("computedResult");
     textDiv.innerHTML = answer;
-    textDiv.style = "padding: 25px 0px;"
 }
 
 function refreshSelectedRate() {
-    document.getElementById("selectedRate").innerHTML = document.getElementById("interestRate").value+"%";
+    document.getElementById("selectedRate").innerHTML = document.getElementById("rate").value+"%";
 }
 
-// document.getElementById('interestRate').onchange = refreshSelectedRate();
+function validateAmount() {
+    let amountField = document.getElementById("principal");
+    let principalValue = amountField.value;    
+    if(principalValue < 1 || principalValue == '') {
+        alert("Enter a positive number", );
+        amountField.focus();
+        return false;
+    }
+    return true;
+}
 
 window.onload = function() {
     //When page finished loading, fill the current selected interest rate.
     refreshSelectedRate();
 
-    //Avoid poluting HTML code with javascript call onchange="..."
-    document.getElementById('interestRate').addEventListener("change", refreshSelectedRate, false);
+    //Avoid poluting HTML code with javascript calls onchange="..."
+    document.getElementById('rate').addEventListener("change", refreshSelectedRate, false);
+    document.getElementById('principal').addEventListener("change", validateAmount, false);
     document.getElementById('buttonCompute').addEventListener("click", compute, false);
-
-    //Avoid page reload after form submit keeping HTML5 validations
-    document.forms[0].onsubmit = function(e) { e.preventDefault() };
-};
+}
